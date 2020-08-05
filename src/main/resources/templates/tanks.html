@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tanks</title>
+    <style>
+ul
+{
+    font-size: 25pt;
+}
+li
+{
+    font-size: 20pt;
+}
+    </style>
+</head>
+<body>
+    <h2><a th:href="@{'/components'}" th:text="Components"></a></h2>
+
+    <h1>Tanks</h1>
+    <ul th:each="tank : ${Tanks}" id="tanks">
+        <li th:text="${tank.getId()} + ' ' + ${tank.getName()} + ' ' + ${tank.getPrice()}+ ' ' + ${tank.getNationality()}"></li>
+        <a th:href="@{'/tanks/' + ${tank.getId()}}" th:text="details"></a>
+    </ul>
+</body>
+</html>
